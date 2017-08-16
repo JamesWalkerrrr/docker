@@ -27,8 +27,8 @@ ENV LANG zh_CN.UTF-8
 RUN echo 'export LANG="zh_CN.UTF-8"' >> ~/.bashrc
 RUN yum install -y git 
 CMD /opt/apache-tomcat-8.0.45/bin/catalina.sh run
-ADD ./dockerjenkins.sh /usr/local/bin/dockerjenkins.sh
-RUN chmod +x /usr/local/bin/dockerjenkins.sh
+#ADD ./dockerjenkins.sh /usr/local/bin/dockerjenkins.sh
+#RUN chmod +x /usr/local/bin/dockerjenkins.sh
 VOLUME /var/lib/docker
 EXPOSE 8080
-ENTRYPOINT ["/usr/local/bin/dockerjenkins.sh"]
+#ENTRYPOINT ["/usr/local/bin/dockerjenkins.sh"]
