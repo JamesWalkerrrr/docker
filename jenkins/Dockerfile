@@ -18,7 +18,10 @@ ENV JAVA_HOME /opt/jdk1.8.0_144
 ENV ANT_HOME /opt/apache-ant-1.9.9
 ENV CLASSPATH .:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 ENV PATH $JAVA_HOME/bin:$ANT_HOME/bin:$PATH
+
+#jiang jenkins war bao xiazai dao tomcatde moren de yingyong lujing 
 RUN wget -P /opt/apache-tomcat-8.0.45/webapps http://updates.jenkins-ci.org/download/war/2.72/jenkins.war
+
 RUN yum -y install kde-l10n-Chinese && yum -y reinstall glibc-common
 ENV LANG zh_CN.UTF-8
 RUN echo 'export LANG="zh_CN.UTF-8"' >> ~/.bashrc
