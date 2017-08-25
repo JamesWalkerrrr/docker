@@ -24,8 +24,13 @@ WORKDIR /opt/redis-3.0.0-rc1
 
 RUN mkdir /etc/redis -p
 RUN cp -r redis.conf /etc/redis/
-RUN sed -i 's/daemonize no/daemonize yes/g' /etc/redis/redis.conf
+#RUN sed -i 's/daemonize no/daemonize yes/g' /etc/redis/redis.conf
 
+VOLUME [ "/var/log/redis" ]
+
+
+WORKDIR /
 ENTRYPOINT [ "/usr/bin/redis-server","/etc/redis/redis.conf" ]
+
 
 EXPOSE 6379
