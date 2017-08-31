@@ -30,7 +30,7 @@ VOLUME [ "/var/log/redis" ]
 
 
 WORKDIR /
-ENTRYPOINT [ "/usr/bin/redis-server","/etc/redis/redis.conf" ]
+#ENTRYPOINT [ "/usr/bin/redis-server","/etc/redis/redis.conf" ]
 
 
 EXPOSE 6379
