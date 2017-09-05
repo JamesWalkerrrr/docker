@@ -1,0 +1,13 @@
+web:
+   image: joooohnson/composeapp:v1
+   command: python app.py
+   ports:
+    - "5000:5000"
+   volumes:
+    - /root/docker/composeapp:/composeapp
+   links:
+    - redis
+
+redis:
+   image: joooohnson/redis_primary:v1
+
