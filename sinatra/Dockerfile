@@ -5,7 +5,6 @@ ENV REFESHED_AT 20181101
 RUN yum clean all -y && yum update -y &&\
     yum groupinstall -y "Development Tools" &&\
     yum -y install wget curl which ruby ruby-dev build-essential redis-tools
-#RUN yum install -y zlib1g-dev libssl-dev libreadline-dev libyaml-dev libxml2-dev libxslt-dev
 
 RUN cd /tmp &&\
     wget  http://ftp.ruby-lang.org/pub/ruby/2.5/ruby-2.5.0.tar.gz &&\
@@ -18,6 +17,8 @@ RUN curl -sSL https://get.rvm.io|bash -s stable &&\
     source /etc/profile.d/rvm.sh
 RUN /usr/local/rvm/bin/rvm requirements
 
+#gem 安装时报错 ERROR: Loading command: install (LoadError) cannot load such file -- zlib  按照下列方法操作可解决
+
 RUN cd /tmp/ruby-2.5.0/ext/zlib &&  ruby ./extconf.rb &&\
     sed -i 's#$(top_srcdir)\/include\/ruby.h#../../include/ruby.h#g' Makefile &&\
     make;make install
@@ -26,11 +27,13 @@ RUN cd /tmp/ruby-2.5.0/ext/openssl &&  ruby ./extconf.rb &&\
     sed -i 's#$(top_srcdir)\/include\/ruby.h#../../include/ruby.h#g' Makefile &&\
     make;make install
 
-RUN gem install --no-rdoc --no-ri sinatra json redis
+RUN gem install sinatra json redis
 
 RUN mkdir -p /opt/webapp
 
+#ADD webapp /opt/webapp
+
 EXPOSE 4567
 
-CMD [ "/opt/webapp/bin/webapp" ]
+CMD [ "ruby","/opt/webapp/lib/app.rb" ]
 
