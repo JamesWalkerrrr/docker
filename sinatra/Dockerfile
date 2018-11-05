@@ -31,7 +31,7 @@ RUN gem install sinatra json redis
 
 RUN mkdir -p /opt/webapp
 
-ADD webapp /opt/webapp
+#ADD webapp /opt/webapp
 
 EXPOSE 4567
 
