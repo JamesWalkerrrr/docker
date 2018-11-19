@@ -37,4 +37,9 @@ done
 popd
 
 docker daemon &
-exec java -jar /opt/apache-tomcat-8.0.45/webapps/jenkins.war
+exec java -jar /opt/jenkins/jenkins.war
+
+
+
+
+
