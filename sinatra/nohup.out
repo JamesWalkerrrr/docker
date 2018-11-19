@@ -1,0 +1,6 @@
+Using CATALINA_BASE:   /home/tomcat/tomcat
+Using CATALINA_HOME:   /home/tomcat/tomcat
+Using CATALINA_TMPDIR: /home/tomcat/tomcat/temp
+Using JRE_HOME:        /opt/jdk1.7.0_15
+Using CLASSPATH:       /home/tomcat/tomcat/bin/bootstrap.jar:/home/tomcat/tomcat/bin/tomcat-juli.jar
+Tomcat started.
